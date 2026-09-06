@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Doom Legacy Launcher." />
-  <meta name="keywords" content="Doom Legacy, Doom Legacy Launcher, Doom, Doom2" />
+  <meta name="description" content="Doom Legacy Launcher 2 - A Launcher for the Doom Legacy Source Engine." />
+  <meta name="keywords" content="Doom Legacy, Doom Legacy Launcher, Doom Legacy Launcher2, Doom, Doom2" />
   <meta name="author" content="Mr.Rocket" />
   <meta name="robots" content="index, follow" />
 
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://github.ioimages" />
 
-  <title>Doom Legacy Launcher - Download</title>
+  <title>Doom Legacy Launcher 2 - Download</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
@@ -176,9 +176,9 @@
     }
 
     .lightblue2 {
-      color: #9F0;
-      font-weight: bold;
-      font-size: xx-large;
+	color: #9F0;
+	font-weight: bold;
+	font-size: large;
     }
 
     /* Disclaimer container formatting */
@@ -251,6 +251,10 @@
       height: 50px;
       vertical-align: middle;
 }
+  .lightblue {      color: #9F0;
+      font-weight: bold;
+      font-size: x-large;
+}
   </style>
 </head>
 <body>
@@ -290,16 +294,34 @@
         <div class="top-right-picturebox"></div>
       </div>
       
-      <div class="release-header">
-        Download Doom Legacy Launcher
-      2</div>
+      <div class="release-header"><a href="download.html" class="lightblue" onClick="trackDownload(); gtag('event', 'download_click', { 'event_category': 'Downloads', 'event_label': 'Doom Legacy Launcher 2' });">Ready to Download Doom Legacy Launcher 2</a></div>
 
       <!-- Empty spacer layout container preserved -->
       <div class="media-details-row"></div>
 
-      <p><img src="images/windows-10-logo.png" class="windows-logo" alt="Windows only"> For Windows Desktop 10 and 11</p>
+      <!-- Empty spacer layout container preserved -->
+      <div class="media-details-row"></div>
+
+      <!-- Windows Specification Row -->
+      <p class="style1">
+        <img src="images/windows-10-logo.png" class="windows-logo" alt="Windows only"> 
+        For Windows Desktop 10 and 11
+      </p>
+
+      <!-- Integrated Terms of Service Section -->
+      <p><span class="lightblue2">Terms of Service:</span></p>
+      <div class="legacy-card" style="margin-bottom: 2rem; padding: 1.2rem; background-color: #0b1108;">
+        <ul style="margin: 0; padding-left: 1.2rem; color: #ccc; font-size: 14px;">
+          <li style="margin-bottom: 0.5rem;"><strong>No Harassment:</strong> Be respectful to other users in IRC channels. Bullying, hate speech, or targeted attacks will result in an immediate ban.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>No Spamming:</strong> Flooding chat logs, repeating messages persistently, or advertising external platforms excessively is strictly prohibited.</li>
+          <li><strong>Safe Environment:</strong> Keep communication clean, helpful, and focused on finding servers or organizing Doom matches.</li>
+        </ul>
+      </div>
+
+      <!-- Disclaimer Section -->
       <p><span class="lightblue2">Disclaimer:</span></p>
       
+ 
       <form name="form1" id="disclaimer-form">
         <!-- Disclaimer text scroll box container -->
         <div class="disclaimer-box">
@@ -333,7 +355,7 @@
   </div>
 
   <!-- Smooth JavaScript Toggle Trigger Function -->
-  <script>
+<script>
     function toggleDownloadLink() {
       var checkbox = document.getElementById('agree-checkbox');
       var downloadSection = document.getElementById('download-wrapper');
