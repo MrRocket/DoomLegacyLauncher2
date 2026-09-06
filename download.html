@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Doom Legacy Launcher." />
+  <meta name="keywords" content="Doom Legacy, Doom Legacy Launcher, Doom, Doom2" />
+  <meta name="author" content="Mr.Rocket" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Doom Legacy Launcher 2" />
+  <meta property="og:description" content="A modern Windows launcher for Doom Legacy." />
+  <meta property="og:url" content="https://github.io" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.ioimages" />
+
+  <title>Doom Legacy Launcher - Download</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: url(images/background.png);
+      color: #eee;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 1.5rem;
+      line-height: 1.6;
+      background-repeat: repeat;
+    }
+
+    /* Core Layout Wrapper */
+    .content {
+      max-width: 95%; 
+      width: 100%;       
+      margin: 0 auto;    
+      padding: 0 10px;   
+      display: flex;
+      gap: 20px; 
+      align-items: flex-start;
+    }
+
+    /* Left Navigation Sidebar Column */
+    .left-sidebar-column {
+      width: 230px; 
+      min-width: 230px; 
+      display: flex;
+      flex-direction: column;
+      gap: 15px; 
+    }
+
+    /* Center Main Content Section Area */
+    .main-column {
+      flex: 1; 
+      background-color: #000000;      
+      border: 1px solid #1c3c11;       
+      padding: 1.5rem;
+      border-radius: 3px;
+    }
+
+    /* Standardized Legacy Card Borders */
+    .legacy-card {
+      background-color: #0b1108;
+      border: 1px solid #1c3c11; 
+      padding: 1rem;
+      border-radius: 3px;
+    }
+
+    .legacy-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: #5EBB00;
+      border-bottom: 1px solid #1c3c11;
+      padding-bottom: 0.25rem;
+      font-size: 16px;
+    }
+
+    .legacy-card ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .legacy-card li {
+      margin-bottom: 0.4rem;
+    }
+
+    .legacy-card li a {
+      font-size: 14px;
+    }
+
+    /* FIXED: Cleaned up editor error snippet and adjusted style */
+    .release-header {
+      background-color: #202010;
+      padding: 15px;
+      border: 1px solid #3a3a1a;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #89d850;
+    }
+
+    h1, h2, h3 {
+      color: #00ccff;
+      margin-top: 1.5rem;
+    }
+
+    a {
+      color: #00ffaa;
+      text-decoration: none;
+    }
+    
+    a:link {
+      color: #89d850;
+    }
+    
+    a:active {
+      color: #9F0;
+    }
+
+    /* Flex alignment rules for the main header row panel */
+    .header-showcase-row {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;            
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      max-width: 260px; 
+      height: auto;
+      margin-bottom: 0; 
+      display: block;
+    }
+
+    /* Sizing limits for your top-right picture box placement */
+    .top-right-picturebox {
+      max-width: 160px; 
+      width: 100%;
+    }
+
+    .top-right-picturebox img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #1c3c11; 
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Side-by-side row wrapper for slider and text specs */
+    .media-details-row {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      width: 100%;
+      margin: 1.5rem 0;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 4rem;
+      border-top: 1px solid #1c3c11;
+      padding-top: 1rem;
+      clear: both;
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    .lightblue2 {
+      color: #9F0;
+      font-weight: bold;
+      font-size: xx-large;
+    }
+
+    /* Disclaimer container formatting */
+    .disclaimer-box {
+      background-color: #0b1108;
+      border: 1px solid #1c3c11;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .checkbox-container {
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .checkbox-container input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* Hides the download link section completely by default */
+    #download-wrapper {
+      display: none;
+    }
+
+    .downloads {
+      background-color: #202010;
+      padding: 15px; 
+      border: 1px solid #3a3a1a;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    
+    .style1 {
+      font-size: 16px;
+      text-align: left;
+    }
+
+    /* Mobile responsive break mechanics */
+    @media (max-width: 1100px) {
+      .content {
+        flex-direction: column; 
+      }
+      .left-sidebar-column {
+        width: 100%;
+        order: 2; 
+      }
+      .main-column {
+        width: 100%;
+        order: 1; 
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-showcase-row {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 15px;
+      }
+    }
+  .windows-logo {      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+}
+  </style>
+</head>
+<body>
+  <div class="content">
+    
+    <!-- Left Column (All Sidebar Panels Stacking Cleanly) -->
+    <div class="left-sidebar-column">
+      <div class="legacy-card">
+        <h4>Launcher Menu</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="download.html">Downloads</a></li>
+          <li><a href="users_manual.htm">User Manual</a></li>
+        </ul>
+      </div>
+
+      <div class="legacy-card">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://doomworld.com" target="_blank">Doomworld</a></li>
+          <li><a href="https://teamhellspawn.com" target="_blank">Team Hell Spawn</a></li>
+          <li><a href="https://github.com" target="_blank">Launcher 2 GitHub Repo</a></li>
+          <li><a href="https://sourceforge.net" target="_blank">Doom Legacy Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Center Main Content Section Area -->
+    <div class="main-column">
+      
+      <!-- Top Header Layout Row Container -->
+      <div class="header-showcase-row">
+        <!-- Main Logo -->
+        <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
+        
+        <!-- Action Picturebox Panel -->
+        <div class="top-right-picturebox"></div>
+      </div>
+      
+      <div class="release-header">
+        Download Doom Legacy Launcher
+      2</div>
+
+      <!-- Empty spacer layout container preserved -->
+      <div class="media-details-row"></div>
+
+      <p><img src="images/windows-10-logo.png" class="windows-logo" alt="Windows only"> For Windows Desktop 10 and 11</p>
+      <p><span class="lightblue2">Disclaimer:</span></p>
+      
+      <form name="form1" id="disclaimer-form">
+        <!-- Disclaimer text scroll box container -->
+        <div class="disclaimer-box">
+          This software is provided "as-is", without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software. By downloading, you agree that you are using this application at your own risk.
+        </div>
+
+        <!-- Interactive Agreement Checkbox Toggle -->
+        <div class="checkbox-container">
+          <input type="checkbox" id="agree-checkbox" onchange="toggleDownloadLink()">
+          <label for="agree-checkbox">I read and accept the terms and conditions outlined above.</label>
+        </div>
+      </form>
+
+      <!-- Wrapped download segment controlled by JavaScript toggle mechanics -->
+      <div id="download-wrapper">
+        <div class="downloads small">
+          <ul class="style1">
+            <li><strong><a href="https://github.com/MrRocket/DoomLegacyLauncher2/releases/download/DoomLegacyLauncher2/Legacy_Launcher_Installer_v2.0.exe" style="color: #39ff14; font-size: 18px;">Download Doom Legacy Launcher 2</a></strong></li>
+            <li>For maximum compatibility, the build is 32-bit only.</li>
+            <li>Note: If you're a Windows 7 user, you may need to install .NET Framework 4.8.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div> <!-- Ends .content layout frame wrapper -->
+
+  <div class="footer">
+    <p>&copy; 2026 Mr.Rocket — Doom Legacy Launcher Project. All rights reserved.</p>
+  </div>
+
+  <!-- Smooth JavaScript Toggle Trigger Function -->
+  <script>
+    function toggleDownloadLink() {
+      var checkbox = document.getElementById('agree-checkbox');
+      var downloadSection = document.getElementById('download-wrapper');
+      
+      if (checkbox.checked) {
+        downloadSection.style.display = 'block'; // Reveals the download link block instantly
+      } else {
+        downloadSection.style.display = 'none';  // Re-hides it if unticked
+      }
+    }
+  </script>
+</body>
+</html>

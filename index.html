@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Doom Legacy Launcher." />
+  <meta name="keywords" content="Doom Legacy, Doom Legacy Launcher, Doom, Doom2" />
+  <meta name="author" content="Mr.Rocket" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Doom Legacy Launcher 2" />
+  <meta property="og:description" content="A modern Windows launcher for Doom Legacy." />
+  <meta property="og:url" content="https://github.io" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.ioimages/legacy_launcher_top.png" />
+
+  <title>Doom Legacy Launcher</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: url(images/background.png);
+      color: #eee;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 1.5rem;
+      line-height: 1.6;
+      background-repeat: repeat;
+    }
+
+    /* Core Layout Wrapper */
+    .content {
+      max-width: 95%; 
+      width: 100%;       
+      margin: 0 auto;    
+      padding: 0 10px;   
+      display: flex;
+      gap: 20px; 
+      align-items: flex-start;
+    }
+
+    /* Left Navigation Sidebar Column */
+    .left-sidebar-column {
+      width: 230px; 
+      min-width: 230px; 
+      display: flex;
+      flex-direction: column;
+      gap: 15px; 
+    }
+
+    /* Center Main Content Section Area */
+    .main-column {
+      flex: 1; 
+      background-color: #000000;      
+      border: 1px solid #1c3c11;       
+      padding: 1.5rem;
+      border-radius: 3px;
+    }
+
+    /* Standardized Legacy Card Borders */
+    .legacy-card {
+      background-color: #0b1108;
+      border: 1px solid #1c3c11; 
+      padding: 1rem;
+      border-radius: 3px;
+    }
+
+    .legacy-card h4 {
+	margin: 0 0 0.5rem 0;
+	color: #5EBB00;
+	border-bottom: 1px solid #1c3c11;
+	padding-bottom: 0.25rem;
+	font-size: 16px;
+    }
+
+    .legacy-card ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .legacy-card li {
+      margin-bottom: 0.4rem;
+    }
+
+    .legacy-card li a {
+      font-size: 14px;
+    }
+
+    /* Release Header Block */
+    .release-header {
+ background-color: #202010;
+    padding: 15px;
+    border
+Shorthand property for setting border width, style, and color.
+
+Widely available across major browsers (Baseline since January 2018)
+Learn more
+
+Don’t show
+: 1px solid #3a3a1a;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+    }
+
+    h1, h2, h3 {
+      color: #00ccff;
+      margin-top: 1.5rem;
+    }
+
+    a {
+      color: #00ffaa;
+      text-decoration: none;
+    }
+    
+    a:link {
+      color: #89d850;
+    }
+    
+    a:active {
+      color: #9F0;
+    }
+
+    /* Flex alignment rules for the main header row panel */
+    .header-showcase-row {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;            
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      max-width: 260px; 
+      height: auto;
+      margin-bottom: 0; 
+      display: block;
+    }
+
+    /* Sizing limits for your top-right picture box placement */
+    .top-right-picturebox {
+      max-width: 160px; 
+      width: 100%;
+    }
+
+    .top-right-picturebox img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #1c3c11; 
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Side-by-side row wrapper for slider and text specs */
+    .media-details-row {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      width: 100%;
+      margin: 1.5rem 0;
+    }
+
+    /* Screenshot Slider Layout Rules */
+    .slider-container {
+      width: 501px;
+      min-width: 501px; 
+      margin: 0; 
+      position: relative;
+    }
+
+    .slider {
+      display: flex;
+      aspect-ratio: 501 / 525; 
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      border: 1px solid #1c3c11;
+      border-radius: 4px;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .slider {
+      -ms-overflow-style: none;  
+      scrollbar-width: none;  
+    }
+
+    .slider img {
+      flex: 1 0 100%;
+      scroll-snap-align: start;
+      object-fit: cover;
+    }
+
+    .slider-nav {
+      display: flex;
+      column-gap: 0.5rem;
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .slider-nav a {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      transition: background-color 0.2s ease;
+    }
+
+    .slider-nav a:hover {
+      background-color: #00ffaa; 
+    }
+
+    /* Text area column panel next to slider */
+    .details-text-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .details-text-column p {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .details-text-column ul {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 4rem;
+      border-top: 1px solid #1c3c11;
+      padding-top: 1rem;
+      clear: both;
+    }
+
+    .features li {
+      margin-bottom: 0.4rem;
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    .lightblue {
+      color: #9F0;
+      font-weight: bold;
+      font-size: x-large;
+    }
+
+    .lightblue1 {
+      color: #9F0;
+      font-weight: bold;
+      font-size: x-large;
+    }
+
+    .lightblue2 {
+      color: #9F0;
+      font-weight: bold;
+      font-size: xx-large;
+    }
+
+    .windows-logo {
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .downloads {
+      background-color: #202010;
+      padding: 15px; 
+      border: 1px solid #3a3a1a;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+    }
+    
+    .style1 {
+      font-size: 16px;
+      text-align: left;
+    }
+
+    /* Mobile responsive break mechanics */
+    @media (max-width: 1100px) {
+      .content {
+        flex-direction: column; 
+      }
+      .left-sidebar-column {
+        width: 100%;
+        order: 2; 
+      }
+      .main-column {
+        width: 100%;
+        order: 1; 
+      }
+    }
+
+    /* Collapses slider and details side-by-side text to stack when screen width gets squeezed */
+    @media (max-width: 980px) {
+      .media-details-row {
+        flex-direction: column;
+      }
+      .slider-container {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-showcase-row {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    
+    <!-- Left Column (All Sidebar Panels Stacking Cleanly) -->
+    <div class="left-sidebar-column">
+      <!-- Launcher Menu Box -->
+      <!-- Navigation Box -->
+      <div class="legacy-card">
+        <h4>Launcher Menu</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="download.html">Downloads</a></li>
+          <li><a href="users_manual.htm">User Manual</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Box -->
+      <div class="legacy-card">
+        <h4>Links</h4>
+        <ul>
+        <li><a href="https://www.doomworld.com/" target="_blank">Doomworld</a></li>
+        <li><a href="https://www.teamhellspawn.com/" target="_blank">Team Hell Spawn</a></li>
+          <li><a href="https://github.com/MrRocket/LegacyLauncher2" target="_blank">Launcher 2 GitHub Repo</a></li>
+          <li><a href="https://doomlegacy.sourceforge.net/" target="_blank">Doom Legacy Site</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Center Main Content Section Area -->
+    <div class="main-column">
+      
+      <!-- Top Header Layout Row Container -->
+      <div class="header-showcase-row">
+        <!-- Main Logo (Left Anchored) -->
+        <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
+        
+        <!-- Action Picturebox Panel (Right Anchored) -->
+        <div class="top-right-picturebox">
+          <img src="images/launcher_shot_right.png" alt="In-Game Gameplay Action">
+        </div>
+      </div>
+      
+      <div class="release-header">
+        Doom Legacy Launcher 2.0 Released!</div>
+
+      <!-- Row containing Slider on the left and Details on the right -->
+      <div class="media-details-row">
+        
+        <!-- Screenshot Slider Container (Left-aligned within the split row) -->
+        <div class="slider-container">
+          <div class="slider">
+            <img src="images/launcher_shot1.png" id="slide-1" alt="Screenshot 1">
+            <img src="images/launcher_shot2.png" id="slide-2" alt="Screenshot 2">
+            <img src="images/launcher_shot3.png" id="slide-3" alt="Screenshot 3">
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+
+        <!-- Features and Requirements Block Column (Right-aligned within the split row) -->
+        <div class="details-text-column">
+          <p><span class="lightblue">Features:</span></p>
+          <ul class="features small">
+            <li class="style1">Integrated Server Browser</li>
+            <li class="style1"> Double click Join and automatically download PWADs</li>
+            <li class="style1">Auto Download Doom Legacy and its Common resource files in the Updates tab</li>
+            <li class="style1">Auto Download Shareware IWADs in the Updates tab if needed</li>
+            <li class="style1">Launch and Join the game with (some but not all) Doom Legacy features</li>
+            <li class="style1">Integrated but limited IRC chat </li>
+          </ul>
+          <p><span class="lightblue1">Requirements:</span></p>
+          <ul class="features small">
+        <li class="style1">Windows 10/11 with .NET Framework 4.8 </li>
+        <li class="style1">Doom Legacy and at least 1 IWAD</li>
+        <li class="style1">Minimum hardware: Dual-core CPU, 1GB RAM, Direct3D-capable GPU</li>
+        <li class="style1">Internet or LAN connection for multiplayer - Open Port 5029 UDP for hosting over the net.</li>
+          </ul>
+
+
+
+        </div>
+
+      </div> <!-- Ends media-details-row cleanly before downloads start -->
+
+      <p><span class="lightblue2">Download Doom Legacy Launcher 2:</span></p>
+      <div class="downloads small">
+        <ul class="style1">
+          <li><img src="images/windows-10-logo.png" class="windows-logo" alt="Windows only"> For Windows Desktop 10 and 11</li>
+          <li><a href="download.html" class="lightblue" onClick="trackDownload(); gtag('event', 'download_click', { 'event_category': 'Downloads', 'event_label': 'Doom Legacy Launcher 2' });">Proceed to Downloads Page</a></li>
+        </ul>
+      </div>
+
+      <p class="small"><span class="style1"><strong>View:</strong> <a href="users_manual.htm"><strong>User Manual</strong></a></span></p>
+
+      <h3 class="lightblue">Source Code:</h3>
+      <p class="style1"><strong>GitHub Repository:</strong> <a href="https://github.com" target="_blank">://github.com</a></p>
+      <p class="style1"><strong>License:</strong> Open-source under the MIT License</p>
+    </div>
+
+  </div> <!-- Ends .content layout frame wrapper -->
+
+  <div class="footer">
+    <p>&copy; 2026 Mr.Rocket — Doom Legacy Launcher Project. All rights reserved.</p>
+  </div>
+</body>
+</html>
