@@ -13,9 +13,9 @@
   <meta property="og:description" content="A modern Windows launcher for Doom Legacy." />
   <meta property="og:url" content="https://github.io" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://github.ioimages/legacy_launcher_top.png" />
+  <meta property="og:image" content="https://github.ioimages" />
 
-  <title>Doom Legacy Launcher 2</title>
+  <title>Doom Legacy Launcher 2 - User Manual</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
@@ -71,11 +71,11 @@
     }
 
     .legacy-card h4 {
-	margin: 0 0 0.5rem 0;
-	color: #5EBB00;
-	border-bottom: 1px solid #1c3c11;
-	padding-bottom: 0.25rem;
-	font-size: 16px;
+      margin: 0 0 0.5rem 0;
+      color: #5EBB00;
+      border-bottom: 1px solid #1c3c11;
+      padding-bottom: 0.25rem;
+      font-size: 16px;
     }
 
     .legacy-card ul {
@@ -92,20 +92,15 @@
       font-size: 14px;
     }
 
-    /* Release Header Block */
+    /* FIXED: Restored clean background header card styles */
     .release-header {
- background-color: #202010;
-    padding: 15px;
-    border
-Shorthand property for setting border width, style, and color.
-
-Widely available across major browsers (Baseline since January 2018)
-Learn more
-
-Don’t show
-: 1px solid #3a3a1a;
-    border-radius: 4px;
-    margin-top: 1.5rem;
+      background-color: #202010;
+      padding: 15px;
+      border: 1px solid #3a3a1a;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #89d850;
     }
 
     h1, h2, h3 {
@@ -122,11 +117,16 @@ Don’t show
       color: #89d850;
     }
     
+    a:hover {
+      color: #39ff14;
+      text-decoration: underline;
+    }
+    
     a:active {
       color: #9F0;
     }
 
-    /* Flex alignment rules for the main header row panel */
+    /* Header showcase row wrapper definitions */
     .header-showcase-row {
       display: flex;
       justify-content: space-between; 
@@ -142,22 +142,12 @@ Don’t show
       display: block;
     }
 
-    /* Sizing limits for your top-right picture box placement */
     .top-right-picturebox {
       max-width: 160px; 
       width: 100%;
     }
 
-    .top-right-picturebox img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 1px solid #1c3c11; 
-      border-radius: 4px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-    }
-
-    /* Side-by-side row wrapper for slider and text specs */
+    /* Side-by-side split container row framework */
     .media-details-row {
       display: flex;
       gap: 25px;
@@ -166,63 +156,6 @@ Don’t show
       margin: 1.5rem 0;
     }
 
-    /* Screenshot Slider Layout Rules */
-    .slider-container {
-      width: 501px;
-      min-width: 501px; 
-      margin: 0; 
-      position: relative;
-    }
-
-    .slider {
-      display: flex;
-      aspect-ratio: 501 / 525; 
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-      border: 1px solid #1c3c11;
-      border-radius: 4px;
-    }
-
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .slider {
-      -ms-overflow-style: none;  
-      scrollbar-width: none;  
-    }
-
-    .slider img {
-      flex: 1 0 100%;
-      scroll-snap-align: start;
-      object-fit: cover;
-    }
-
-    .slider-nav {
-      display: flex;
-      column-gap: 0.5rem;
-      position: absolute;
-      bottom: 1.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-
-    .slider-nav a {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.4);
-      transition: background-color 0.2s ease;
-    }
-
-    .slider-nav a:hover {
-      background-color: #00ffaa; 
-    }
-
-    /* Text area column panel next to slider */
     .details-text-column {
       flex: 1;
       display: flex;
@@ -231,13 +164,20 @@ Don’t show
 
     .details-text-column p {
       margin-top: 0;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+      text-align: justify;
     }
 
     .details-text-column ul {
       margin-top: 0;
       margin-bottom: 1.5rem;
       padding-left: 1.2rem;
+    }
+
+    .tab-section {
+      border-top: 1px solid #1c3c11;
+      padding-top: 1.5rem;
+      margin-top: 2rem;
     }
 
     .footer {
@@ -250,52 +190,12 @@ Don’t show
       clear: both;
     }
 
-    .features li {
-      margin-bottom: 0.4rem;
-    }
-
-    .small {
-      font-size: 14px;
-    }
-
-    .lightblue {
-      color: #9F0;
-      font-weight: bold;
-      font-size: x-large;
-    }
-
-    .lightblue1 {
-      color: #9F0;
-      font-weight: bold;
-      font-size: x-large;
-    }
-
-    .lightblue2 {
-      color: #9F0;
-      font-weight: bold;
-      font-size: xx-large;
-    }
-
-    .windows-logo {
-      width: 50px;
-      height: 50px;
-      vertical-align: middle;
-    }
-
-    .downloads {
-      background-color: #202010;
-      padding: 15px; 
-      border: 1px solid #3a3a1a;
-      border-radius: 4px;
-      margin-top: 1.5rem;
-    }
-    
     .style1 {
       font-size: 16px;
       text-align: left;
     }
 
-    /* Mobile responsive break mechanics */
+    /* Mobile responsive adjustments */
     @media (max-width: 1100px) {
       .content {
         flex-direction: column; 
@@ -309,34 +209,20 @@ Don’t show
         order: 1; 
       }
     }
+	/* Targeted styles for tab names inside the user manual sections */
+.tab-section span[class^="lightblue"] {
+    color: #39ff14 !important; /* Force neon lime green exclusively for tab sections */
+    font-weight: bold !important;
+    text-transform: capitalize;
+}
 
-    /* Collapses slider and details side-by-side text to stack when screen width gets squeezed */
-    @media (max-width: 980px) {
-      .media-details-row {
-        flex-direction: column;
-      }
-      .slider-container {
-        width: 100%;
-        min-width: 100%;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .header-showcase-row {
-        flex-direction: column; 
-        align-items: flex-start;
-        gap: 15px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="content">
     
-    <!-- Left Column (All Sidebar Panels Stacking Cleanly) -->
+    <!-- Left Column (Navigation Sidebars) -->
     <div class="left-sidebar-column">
-      <!-- Launcher Menu Box -->
-      <!-- Navigation Box -->
       <div class="legacy-card">
         <h4>Launcher Menu</h4>
         <ul>
@@ -346,70 +232,84 @@ Don’t show
         </ul>
       </div>
 
-      <!-- Links Box -->
       <div class="legacy-card">
         <h4>Links</h4>
         <ul>
-        <li><a href="https://www.doomworld.com/" target="_blank">Doomworld</a></li>
-        <li><a href="https://www.teamhellspawn.com/" target="_blank">Team Hell Spawn</a></li>
-          <li><a href="https://github.com/MrRocket/DoomLegacyLauncher2" target="_blank">Launcher 2 GitHub Repo</a></li>
-          <li><a href="https://doomlegacy.sourceforge.net/" target="_blank">Doom Legacy Site</a></li>
+          <li><a href="https://doomworld.com" target="_blank">Doomworld</a></li>
+          <li><a href="https://teamhellspawn.com" target="_blank">Team Hell Spawn</a></li>
+          <li><a href="https://github.com" target="_blank">Launcher 2 GitHub Repo</a></li>
+          <li><a href="https://sourceforge.net" target="_blank">Doom Legacy Site</a></li>
         </ul>
       </div>
     </div>
     
-    <!-- Center Main Content Section Area -->
+    <!-- Center Main Content Area -->
     <div class="main-column">
       
-      <!-- Top Header Layout Row Container -->
+      <!-- Top Header Area -->
       <div class="header-showcase-row">
-        <!-- Main Logo (Left Anchored) -->
         <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
-        
-        <!-- Action Picturebox Panel (Right Anchored) -->
         <div class="top-right-picturebox"></div>
       </div>
       
-      <div class="release-header">
-        Doom Legacy Launcher 2 User Manual: Under Construction... please stand by.</div>
+<div class="release-header">
+        Doom Legacy Launcher 2 User Manual
+      </div>
 
-      <!-- Row containing Slider on the left and Details on the right -->
       <div class="media-details-row">
-        
-        <!-- Screenshot Slider Container (Left-aligned within the split row) -->
-        <!-- Features and Requirements Block Column (Right-aligned within the split row) -->
         <div class="details-text-column">
+          
+          <p>&nbsp;</p>
+          <p>TODO : 
+          </p>
+          <p>
+            <!-- Getting Started Text Panel with Anchor Links -->
+          </p>
           <p><span class="lightblue">Getting Started:</span></p>
-          <ul class="features small">
-            <li class="style1">...</li>
-            <li class="style1">...</li>
-            <li class="style1">...</li>
-            <li class="style1"></li>
-          </ul>
-          <p><span class="lightblue1">Setup tab:</span></p>
-          <ul class="features small">
-        <li class="style1">...</li>
-        <li class="style1">...</li>
-        <li class="style1">...</li>
-        <li class="style1"></li>
-          </ul>
+          <p>
+            Doom Legacy Launcher 2 (DLL2) is a modern launcher designed for the Doom Legacy source engine. Built with simplicity and ease of use in mind, its functions are completely self-explanatory. When running the launcher for the first time, you will be greeted by the <a href="#setup-tab">Setup tab</a>. This is where you configure your Doom Legacy executable location, IWAD folder path, and basic game parameters before launching. 
+          </p>
+          <p>
+            If you haven't downloaded Doom Legacy or don't have any Doom IWADs installed yet, simply navigate to the <a href="#updates-tab">Updates tab</a>. From there, you can download the latest Doom Legacy engine alongside free shareware or Freedoom IWADs. This feature will have you up and running in just two clicks!
+          </p>
+          <p>
+            Advanced settings can be found within the <a href="#legacy-tab">Legacy Settings tab</a> and the <a href="#game-tab">Game Settings tab</a>, where you can modify execution values or load additional file add-ons. To host or connect to multiplayer sessions, head over to the <a href="#network-tab">Network Game tab</a>. When hosting matches online, remember to forward UDP port 5029 so your server shows up globally on the public master server tracker. To join an active session, simply double-click any item in the server list. 
+          </p>
+          <p>
+            Finally, the launcher features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. Below is a detailed breakdown of each individual tab's layout capabilities.
+          </p>
 
+          <!-- 1. Setup Tab Section Block Element -->
+          <div id="setup-tab" class="tab-section">
+            <p><span class="lightblue1">Setup Tab:</span></p>
+            <p><img src="images/launcher_shot1.png" width="629" height="680"></p>
+            <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem;">
+              <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Path:</strong> Direct link location pointer targeting your base executable file.</li>
+              <li style="margin-bottom: 0.4rem;"><strong>IWAD Folder Location:</strong> Global asset directory location storing main data archives (.WAD).</li>
+              <li><strong>Detected IWADs Selector:</strong> Quick dropdown options listing all valid games found inside your library path.</li>
+            </ul>
+</div>
 
+          <!-- 2. Legacy Settings Block -->
+          <div id="legacy-tab" class="tab-section">
+            <p><span class="lightblue1">Legacy Settings Tab:</span></p>
+            <p><img src="images/launcher_shot2.png" width="653" height="674"></p>
+            <p style="color: #ccc; font-size: 14px;">Configure specific compatibility parameters and command lines built for managing retro source ports cleanly.</p>
+</div>
 
-        </div>
+          <!-- 3. Game Settings Block -->
+          <div id="game-tab" class="tab-section">
+            <p><span class="lightblue1">Game Settings Tab:</span></p>
+            <p style="color: #ccc; font-size: 14px;">Adjust output screen resolutions, frame render hooks, or quickly inject custom mapping add-on packages (.PWAD).</p>
+          </div>
 
-      </div> <!-- Ends media-details-row cleanly before downloads start -->
+          <!-- 4. Network Game Block -->
+          <div id="network-tab" class="tab-section">
+            <p><span class="lightblue1">Network Game Tab:</span></p>
+            <p><img src="images/launcher_shot3.png" width="631" height="670"></p>
+            <p style="color: #ccc; font-size: 14px;">Host or join multi-user network games. Double-click servers on the list grid to connect, or host local area network sessions instantly.</p>
+</div>
 
-      <p>Todo...</p>
-      <div class="downloads small"> </div>
-
-      <p class="small">&nbsp;</p>
-    </div>
-
-  </div> <!-- Ends .content layout frame wrapper -->
-
-  <div class="footer">
-    <p>&copy; 2026 Mr.Rocket — Doom Legacy Launcher Project. All rights reserved.</p>
-  </div>
-</body>
-</html>
+          <!-- 5. Updates Block -->
+          <div id="updates-tab" class="tab-section">
+            <p><span class="lightblue1">Updates Tab:</span></p>
