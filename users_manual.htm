@@ -22,6 +22,11 @@
     * {
       box-sizing: border-box;
     }
+/* Enables native fluid smooth scrolling browser-wide */
+html {
+  scroll-behavior: smooth;
+}
+
 
     body {
       background-color: #000000;
@@ -94,13 +99,14 @@
 
     /* FIXED: Restored clean background header card styles */
     .release-header {
-      background-color: #202010;
-      padding: 15px;
-      border: 1px solid #3a3a1a;
-      border-radius: 4px;
-      margin-top: 1.5rem;
-      font-weight: bold;
-      color: #89d850;
+	background-color: #202010;
+	padding: 15px;
+	border: 1px solid #3a3a1a;
+	border-radius: 4px;
+	margin-top: 1.5rem;
+	font-weight: bold;
+	color: #89d850;
+	font-size: x-large;
     }
 
     h1, h2, h3 {
@@ -215,10 +221,124 @@
     font-weight: bold !important;
     text-transform: capitalize;
 }
+/* Enable layout wrapping coordinates inside tab blocks */
+.tab-section {
+  border-top: 1px solid #1c3c11;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  position: relative; 
+}
+
+/* NEW: Multi-column row layout inside each tab block */
+.tab-content-flex {
+  display: flex;
+  gap: 20px; /* Spacing between the screenshot and the side text description */
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* NEW: Fixed width container for your manual screenshots to scale safely */
+.tab-image-side {
+  width: 480px;      /* Fixed desktop display width for the screen grab tracks */
+  min-width: 480px;
+}
+
+/* Styled text area column card sitting on the right side of the image */
+.tab-text-side {
+  flex: 1; /* Automatically consumes all remaining horizontal screen space */
+  display: flex;
+  flex-direction: column;
+  background-color: #0b1108;      /* Deep green-tinted charcoal background matching the sidebars */
+  border: 1px solid #1c3c11;       /* The signature thin, dark green border */
+  padding: 1.2rem;                 /* Adds breathing room inside the border so text isn't cramped */
+  border-radius: 3px;              /* Subtle rounding to match your main panel design */
+}
+
+
+/* Absolute position update to keep it anchored right at the top edge of the section */
+.back-to-top {
+  position: absolute;
+  right: 0;
+  top: 1.5rem; 
+  font-size: 12px;
+  font-weight: bold;
+  color: #666 !important; 
+  transition: color 0.2s ease;
+  text-decoration: none !important;
+}
+
+.back-to-top:hover {
+  color: #39ff14 !important; 
+  text-decoration: underline !important;
+}
+
+/* Responsive control for manual tab layout pictures */
+.manual-img {
+  width: 100%;
+  max-width: 640px;       /* Restricts the width from scaling past 640px */
+  max-height: 670px;      /* Restricts the height from scaling past 670px */
+  object-fit: contain;    /* Guarantees the image shrinks proportionally without distorting */
+  display: block;
+  margin: 0; 
+  border: 1px solid #1c3c11; 
+  border-radius: 4px;
+}
+
+
+/* Responsive adjustment: Stack vertically on smaller monitors */
+@media (max-width: 1050px) {
+  .tab-content-flex {
+    flex-direction: column;
+  }
+  .tab-image-side {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+
+/* Absolute right-margin align rule for top jumps */
+.back-to-top {
+  position: absolute;
+  right: 0;
+  top: 1.5rem; /* Matches padding-top of your tab section container */
+  font-size: 12px;
+  font-weight: bold;
+  color: #666 !important; /* Low-profile grey color so it remains unobtrusive */
+  transition: color 0.2s ease;
+  text-decoration: none !important;
+}
+
+.back-to-top:hover {
+  color: #39ff14 !important; /* High-contrast neon green hover flare */
+  text-decoration: underline !important;
+}
+
+/* Responsive control for manual tab layout pictures */
+.manual-img {
+  max-width: 100%;
+  height: auto; /* Keeps image proportions clean when scaled down */
+  display: block;
+  margin: 1rem 0;
+  border: 1px solid #1c3c11; /* Matching thin green legacy border */
+  border-radius: 4px;
+}
+
+/* Custom title style for the Getting Started header section */
+.getting-started-title {
+  color: #39ff14 !important; /* Vibrant neon lime green */
+  font-weight: bold;
+  font-size: 1.3rem;         /* Makes it stand out larger than standard text */
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 
   </style>
 </head>
-<body>
+<body id="top">
+
   <div class="content">
     
     <!-- Left Column (Navigation Sidebars) -->
@@ -237,8 +357,8 @@
         <ul>
           <li><a href="https://doomworld.com" target="_blank">Doomworld</a></li>
           <li><a href="https://teamhellspawn.com" target="_blank">Team Hell Spawn</a></li>
-          <li><a href="https://github.com" target="_blank">Launcher 2 GitHub Repo</a></li>
-          <li><a href="https://sourceforge.net" target="_blank">Doom Legacy Site</a></li>
+          <li><a href="https://github.com/MrRocket/DoomLegacyLauncher2" target="_blank">Launcher 2 GitHub Repo</a></li>
+          <li><a href="https://doomlegacy.sourceforge.net" target="_blank">Doom Legacy Site</a></li>
         </ul>
       </div>
     </div>
@@ -258,17 +378,13 @@
 
       <div class="media-details-row">
         <div class="details-text-column">
-          
-          <p>&nbsp;</p>
-          <p>TODO : 
-          </p>
           <p>
-            <!-- Getting Started Text Panel with Anchor Links -->
-          </p>
-          <p><span class="lightblue">Getting Started:</span></p>
+          <!-- Getting Started Text Panel with Anchor Links -->
           <p>
-            Doom Legacy Launcher 2 (DLL2) is a modern launcher designed for the Doom Legacy source engine. Built with simplicity and ease of use in mind, its functions are completely self-explanatory. When running the launcher for the first time, you will be greeted by the <a href="#setup-tab">Setup tab</a>. This is where you configure your Doom Legacy executable location, IWAD folder path, and basic game parameters before launching. 
+            <span class="getting-started-title">Getting Started:</span>
+            Doom Legacy Launcher 2 (DLL2) is a modern launcher designed for the <a href="https://doomlegacy.sourceforge.net/" target="_blank">Doom Legacy source engine</a>. Built with simplicity and ease of use in mind, its functions are completely self-explanatory. When running the launcher for the first time, you will be greeted by the <a href="#setup-tab">Setup tab</a>. This is where you configure your Doom Legacy executable location, IWAD folder path, and basic game parameters before launching. 
           </p>
+
           <p>
             If you haven't downloaded Doom Legacy or don't have any Doom IWADs installed yet, simply navigate to the <a href="#updates-tab">Updates tab</a>. From there, you can download the latest Doom Legacy engine alongside free shareware or Freedoom IWADs. This feature will have you up and running in just two clicks!
           </p>
@@ -279,37 +395,129 @@
             Finally, the launcher features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. Below is a detailed breakdown of each individual tab's layout capabilities.
           </p>
 
-          <!-- 1. Setup Tab Section Block Element -->
+                  <!-- 1. Setup Tab Section Block Element -->
           <div id="setup-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Setup Tab:</span></p>
-            <p><img src="images/launcher_shot1.png" width="629" height="680"></p>
-            <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem;">
-              <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Path:</strong> Direct link location pointer targeting your base executable file.</li>
-              <li style="margin-bottom: 0.4rem;"><strong>IWAD Folder Location:</strong> Global asset directory location storing main data archives (.WAD).</li>
-              <li><strong>Detected IWADs Selector:</strong> Quick dropdown options listing all valid games found inside your library path.</li>
-            </ul>
-</div>
+            
+            <div class="tab-content-flex">
+              <!-- Left Side: Image container box -->
+              <div class="tab-image-side">
+                <img src="images/launcher_shot1.png" class="manual-img" alt="Setup Tab Screenshot">
+              </div>
+              
+              <!-- Right Side: Description text and bullet lists -->
+              <div class="tab-text-side">
+                <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem; margin: 0;">
+                  <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Path:</strong> Direct link location pointer targeting your base executable file.</li>
+                  <li style="margin-bottom: 0.4rem;"><strong>IWAD Folder Location:</strong> Global asset directory location storing main data archives (.WAD).</li>
+                  <li><strong>Detected IWADs Selector:</strong> Quick dropdown options listing all valid games found inside your library path.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           <!-- 2. Legacy Settings Block -->
           <div id="legacy-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Legacy Settings Tab:</span></p>
-            <p><img src="images/launcher_shot2.png" width="653" height="674"></p>
-            <p style="color: #ccc; font-size: 14px;">Configure specific compatibility parameters and command lines built for managing retro source ports cleanly.</p>
-</div>
+            
+            <div class="tab-content-flex">
+              <div class="tab-image-side">
+                <img src="images/launcher_shot2.png" class="manual-img" alt="Legacy Settings Tab Screenshot">
+              </div>
+              <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">Configure specific compatibility parameters and command lines built for managing retro source ports cleanly.</p>
+              </div>
+            </div>
+          </div>
 
           <!-- 3. Game Settings Block -->
           <div id="game-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Game Settings Tab:</span></p>
-            <p style="color: #ccc; font-size: 14px;">Adjust output screen resolutions, frame render hooks, or quickly inject custom mapping add-on packages (.PWAD).</p>
+            
+            <div class="tab-content-flex">
+              <div class="tab-image-side">
+                <img src="images/launcher_shot2_2.png" class="manual-img" alt="Game Settings Tab Screenshot">
+              </div>
+              <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">Add PWAD .wad or Dehacked .deh files here. As well as gameplay adjustments. Notice we can enable MBF Dogs and add Bots on the fly!</p>
+              </div>
+            </div>
           </div>
 
-          <!-- 4. Network Game Block -->
+         <!-- 4. Network Game Block -->
           <div id="network-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Network Game Tab:</span></p>
-            <p><img src="images/launcher_shot3.png" width="631" height="670"></p>
-            <p style="color: #ccc; font-size: 14px;">Host or join multi-user network games. Double-click servers on the list grid to connect, or host local area network sessions instantly.</p>
-</div>
+            
+            <div class="tab-content-flex">
+              <div class="tab-image-side">
+                <img src="images/launcher_shot3.png" class="manual-img" alt="Network Game Tab Screenshot">
+              </div>
+              <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">
+                  <strong>Host or Join Network Games:</strong><br><br>
+                  Double-click servers in the server list to connect, or host your own local area network (LAN) and public internet games.
+                </p>
+                <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">
+                  As mentioned in the launcher itself, you will need to forward port <strong>5029 UDP</strong> when hosting a public game so your server is visible to the public. You may want to go ahead and forward the port number for <strong>TCP</strong> as well. Most of the time, forwarding TCP isn't necessary because PWADs are downloaded directly through the launcher. However, if the server is hosting a customized <strong>.Deh file</strong> and the file cannot be found, Doom Legacy will try to download it internally. This process requires a TCP connection for its download stream instead of UDP.
+                </p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">
+                  The <strong>Master Server Address</strong> field can be left blank; it is mostly there for future use. Right now, the launcher utilizes its own database to store hosted server information and relay it back to the client's server list data grid so players can view active matches worldwide, and join them.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          <!-- 5. Updates Block -->
+          <!-- 5. Updates Block Continuation -->
           <div id="updates-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Updates Tab:</span></p>
+            
+            <div class="tab-content-flex">
+              <div class="tab-image-side">
+                <img src="images/launcher_shot4.png" class="manual-img" alt="Updates Tab Screenshot">
+              </div>
+              <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">Automated update scripts built to check version numbers, download launcher revisions, and retrieve free shareware assets directly over safe file mirrors.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. NEW: IRC Chat Block Section Element -->
+          <div id="irc-tab" class="tab-section">
+            <a href="#top" class="back-to-top">^ Back to Top</a>
+            <p><span class="lightblue1">IRC Tab:</span></p>
+            
+            <div class="tab-content-flex">
+              <div class="tab-image-side">
+                <img src="images/launcher_shot5.png" class="manual-img" alt="IRC Tab Chat Screenshot">
+              </div>
+              <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin-top: 0; margin-bottom: 0.8rem;">
+                  The launcher features an integrated, lightweight Internet Relay Chat (IRC) client that automatically links you to the community chatrooms. This section is designed to keep players connected without requiring external client programs.
+                </p>
+                <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem; margin: 0;">
+                  <li style="margin-bottom: 0.4rem;"><strong>Auto-Connect:</strong> Joins the official Doom Legacy matchmaking channel immediately upon loading the tab panel.</li>
+                  <li style="margin-bottom: 0.4rem;"><strong>Match Coordination:</strong> Ideal for organizing coop sessions, challenging rivals to deathmatches, or checking server availability with active players.</li>
+                  <li><strong>Chat Code of Conduct:</strong> All message transactions inside the text window are subject to our behavioral terms to prevent flooding or server harassment.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- Ends .details-text-column -->
+      </div> <!-- Ends .media-details-row -->
+
+    </div> <!-- Ends .main-column center workspace -->
+  </div> <!-- Ends .content layout frame wrapper -->
+
+  <!-- Global Footer Zone -->
+  <div class="footer">
+    <p>&copy; 2026 Mr.Rocket — Doom Legacy Launcher Project. All rights reserved.</p>
+  </div>
+</body>
+</html>
+
