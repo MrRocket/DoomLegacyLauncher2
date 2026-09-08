@@ -327,6 +327,19 @@ Don’t show
         gap: 15px;
       }
     }
+  .release-header1 { background-color: #202010;
+    padding: 15px;
+    border
+Shorthand property for setting border width, style, and color.
+
+Widely available across major browsers (Baseline since January 2018)
+Learn more
+
+Don’t show
+: 1px solid #3a3a1a;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+}
   </style>
 </head>
 <body>
@@ -371,8 +384,7 @@ Don’t show
         </div>
       </div>
       
-      <div class="release-header">
-        Doom Legacy Launcher 2.0 Released!</div>
+      <div class="release-header"><a href="download.html" class="lightblue" onClick="trackDownload(); gtag('event', 'download_click', { 'event_category': 'Downloads', 'event_label': 'Doom Legacy Launcher 2' });">Doom Legacy Launcher 2.0 Released!</a></div>
 
       <!-- Row containing Slider on the left and Details on the right -->
       <div class="media-details-row">

@@ -129,7 +129,8 @@ html {
     }
     
     a:active {
-      color: #9F0;
+	color: #9F0;
+	text-align: right;
     }
 
     /* Header showcase row wrapper definitions */
@@ -335,45 +336,46 @@ html {
 }
 
 
+  .header-showcase-row1 {      display: flex;
+      justify-content: space-between; 
+      align-items: center;            
+      width: 100%;
+      margin-bottom: 1rem;
+}
+  .header-showcase-row2 {      display: flex;
+      justify-content: space-between; 
+      align-items: center;            
+      width: 100%;
+      margin-bottom: 1rem;
+}
+.header-showcase-row11 {display: flex;
+      justify-content: space-between; 
+      align-items: center;            
+      width: 100%;
+      margin-bottom: 1rem;
+}
   </style>
 </head>
 <body id="top">
 
   <div class="content">
     
-    <!-- Left Column (Navigation Sidebars) -->
-    <div class="left-sidebar-column">
-      <div class="legacy-card">
-        <h4>Launcher Menu</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="download.html">Downloads</a></li>
-          <li><a href="users_manual.htm">User Manual</a></li>
-        </ul>
-      </div>
 
-      <div class="legacy-card">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="https://doomworld.com" target="_blank">Doomworld</a></li>
-          <li><a href="https://teamhellspawn.com" target="_blank">Team Hell Spawn</a></li>
-          <li><a href="https://github.com/MrRocket/DoomLegacyLauncher2" target="_blank">Launcher 2 GitHub Repo</a></li>
-          <li><a href="https://doomlegacy.sourceforge.net" target="_blank">Doom Legacy Site</a></li>
-        </ul>
-      </div>
-    </div>
     
     <!-- Center Main Content Area -->
     <div class="main-column">
       
-      <!-- Top Header Area -->
-      <div class="header-showcase-row">
-        <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
-        <div class="top-right-picturebox"></div>
-      </div>
+<div class="header-showcase-row">
+  <a href="index.html">
+  <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
+</a>
+  <div class="top-right-picturebox">
+    <a href="index.html">Go back Home</a>
+  </div>
+</div>
       
 <div class="release-header">
-        Doom Legacy Launcher 2 User Manual
+        Users Manual
       </div>
 
       <div class="media-details-row">
@@ -382,7 +384,7 @@ html {
           <!-- Getting Started Text Panel with Anchor Links -->
           <p>
             <span class="getting-started-title">Getting Started:</span>
-            Doom Legacy Launcher 2 (DLL2) is a modern launcher designed for the <a href="https://doomlegacy.sourceforge.net/" target="_blank">Doom Legacy source engine</a>. Built with simplicity and ease of use in mind, its functions are completely self-explanatory. When running the launcher for the first time, you will be greeted by the <a href="#setup-tab">Setup tab</a>. This is where you configure your Doom Legacy executable location, IWAD folder path, and basic game parameters before launching. 
+            Doom Legacy Launcher 2 is a modern launcher designed for the <a href="https://doomlegacy.sourceforge.net/" target="_blank">Doom Legacy source engine</a>. Built with simplicity and ease of use in mind, its functions are completely self-explanatory. When running the launcher for the first time, you will be greeted by the <a href="#setup-tab">Setup tab</a>. This is where you configure your Doom Legacy executable location, IWAD folder path, and basic game parameters before launching. 
           </p>
 
           <p>
@@ -392,10 +394,10 @@ html {
             Advanced settings can be found within the <a href="#legacy-tab">Legacy Settings tab</a> and the <a href="#game-tab">Game Settings tab</a>, where you can modify execution values or load additional file add-ons. To host or connect to multiplayer sessions, head over to the <a href="#network-tab">Network Game tab</a>. When hosting matches online, remember to forward UDP port 5029 so your server shows up globally on the public master server tracker. To join an active session, simply double-click any item in the server list. 
           </p>
           <p>
-            Finally, the launcher features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. Below is a detailed breakdown of each individual tab's layout capabilities.
+            Finally, the launcher features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. Below is a somewhat detailed breakdown of each individual tab's layout capabilities.
           </p>
 
-                  <!-- 1. Setup Tab Section Block Element -->
+          <!-- 1. Setup Tab Section Block Element -->
           <div id="setup-tab" class="tab-section">
             <a href="#top" class="back-to-top">^ Back to Top</a>
             <p><span class="lightblue1">Setup Tab:</span></p>
@@ -412,14 +414,19 @@ html {
                   <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Path:</strong> Direct link location pointer targeting your base executable file.</li>
                   <li style="margin-bottom: 0.4rem;"><strong>IWAD Folder Location:</strong> Global asset directory location storing main data archives (.WAD).</li>
                   <li><strong>Detected IWADs Selector:</strong> Quick dropdown options listing all valid games found inside your library path.</li>
+                  <li>If the Paths are met, the launcher will inform you and or direct you to the Updates tab to download Doom Legacy or Shareware IWADs if needed.</li>
+                  <li>Once you have your location paths setup, and an IWAD is selected, both <strong>Skill</strong> and <strong>Maps</strong> Combo boxes will now be active displaying the Skill and proper list of given maps depending on the selected IWAD.</li>
+                  <li>The &quot;<strong>Don't load map</strong>&quot; check box is exactly that, if you check it, and click Launch, the game will load without spawning you in a map, and the first thing you'll see is the game's Title Screen but the setting still loads all other launcher settings. This setting has no affect for a Network game, since we will always load a map then.</li>
+                  <li><strong>Player Name</strong> is obviously where you'd enter your Player Name to display in game. Note* this does not refect your IRC user name or Nick Name.</li>
+                  <li>As discribed in the Launcher, the field just below the Player Name is where you can enter any <strong>Additional Command Line Parameters</strong> with a - followed by a Command or a + followed by a Console variable,  if wanted. ~ View the <a href="https://doomlegacy.sourceforge.net/docs/" target="_blank">Doom Doom Legacy Docs</a> for more infomation about these parameters.</li>
                 </ul>
-              </div>
+</div>
             </div>
           </div>
 
           <!-- 2. Legacy Settings Block -->
           <div id="legacy-tab" class="tab-section">
-            <a href="#top" class="back-to-top">^ Back to Top</a>
+
             <p><span class="lightblue1">Legacy Settings Tab:</span></p>
             
             <div class="tab-content-flex">
@@ -427,7 +434,11 @@ html {
                 <img src="images/launcher_shot2.png" class="manual-img" alt="Legacy Settings Tab Screenshot">
               </div>
               <div class="tab-text-side">
-                <p style="color: #ccc; font-size: 14px; margin: 0;">Configure specific compatibility parameters and command lines built for managing retro source ports cleanly.</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">The Legacy Settings tab is mostly populated with a lot of check box and combo box controls to enable or disable random parameters. </p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;"><strong>Audio</strong> being first where you'd mostly want to keep disabled or unchecked, but they are here incase you'd rather listen to your own music or just don't want to hear anything at all, or maybe just for testing. The same pretty much goes for the <strong>Controls</strong>, Disable Mouse and Disable Joystick will usually go unchecked. The <strong>Experimental Game Options</strong> are mostly here for testing new features recently added to Doom Legacy. Try them out and see if you like them! More will likely be added to future versions of the Launcher. This now brings us to the <strong>Video</strong> settings. These will likely become the most usful settings in the this tab, where obviously we'll select OpenGL and Window Mode video resolutions. The Center Screen check box is a Launcher feature, since on Windows anyway, and in windowed mode, Doom Legacy will end up being displayed in the upper left corner of your screen without it. When checked, the Launcher will try to force Legacy's game window to the center of your screen. You can also set the window to scale to the size of the Launcher using the Display as Launcher Scale, if wanted. Now for the <strong>Conrona Effects</strong> controls. They allow you to changed the Type and Size of Legacy's classic spherical glow effects we see attached to the games light sources like candles, electric lamps and torches. </p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">This tab is mostly left empty for two reasons. Some settings can only be changed in game, and room has been made for future additional controls.</p>
+                            <a href="#top" class="back-to-top">^ Back to Top</a>
               </div>
             </div>
           </div>
@@ -442,6 +453,7 @@ html {
                 <img src="images/launcher_shot2_2.png" class="manual-img" alt="Game Settings Tab Screenshot">
               </div>
               <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">TODO: </p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;">Add PWAD .wad or Dehacked .deh files here. As well as gameplay adjustments. Notice we can enable MBF Dogs and add Bots on the fly!</p>
               </div>
             </div>
@@ -481,6 +493,8 @@ html {
                 <img src="images/launcher_shot4.png" class="manual-img" alt="Updates Tab Screenshot">
               </div>
               <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">TODO:</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;">Automated update scripts built to check version numbers, download launcher revisions, and retrieve free shareware assets directly over safe file mirrors.</p>
               </div>
             </div>
