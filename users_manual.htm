@@ -354,6 +354,22 @@ html {
       width: 100%;
       margin-bottom: 1rem;
 }
+  .manual-img1 {  width: 100%;
+  max-width: 640px;       /* Restricts the width from scaling past 640px */
+  max-height: 670px;      /* Restricts the height from scaling past 670px */
+  object-fit: contain;    /* Guarantees the image shrinks proportionally without distorting */
+  display: block;
+  margin: 0; 
+  border: 1px solid #1c3c11; 
+  border-radius: 4px;
+}
+.manual-img1 {  max-width: 100%;
+  height: auto; /* Keeps image proportions clean when scaled down */
+  display: block;
+  margin: 1rem 0;
+  border: 1px solid #1c3c11; /* Matching thin green legacy border */
+  border-radius: 4px;
+}
   </style>
 </head>
 <body id="top">
@@ -394,8 +410,13 @@ html {
             Advanced settings can be found within the <a href="#legacy-tab">Legacy Settings tab</a> and the <a href="#game-tab">Game Settings tab</a>, where you can modify execution values or load additional file add-ons. To host or connect to multiplayer sessions, head over to the <a href="#network-tab">Network Game tab</a>. When hosting matches online, remember to forward UDP port 5029 so your server shows up globally on the public master server tracker. To join an active session, simply double-click any item in the server list. 
           </p>
           <p>
-            Finally, the launcher features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. Below is a somewhat detailed breakdown of each individual tab's layout capabilities.
-          </p>
+          The launcher also features an integrated <a href="#irc-tab">IRC tab</a>. This allows you to chat with other community members and coordinate match timings directly inside the client interface. </p>
+<p id="launch-button">Finally, we have the Launch button.<br>
+<img src="images/Launch_button.png" width="357" height="58"><br>
+The launch button will always be sitting ready to launch the game any time you click it.<br>
+The button will become disabled however if you've already clicked it to Launch a normal game,<br>
+or have clicked it to Host a game from within the <a href="#network-tab">Network Game tab</a>.</p>
+          <p>Below is a somewhat detailed breakdown of each individual tab's layout capabilities. </p>
 
           <!-- 1. Setup Tab Section Block Element -->
           <div id="setup-tab" class="tab-section">
@@ -414,7 +435,7 @@ html {
                   <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Path:</strong> Direct link location pointer targeting your base executable file.</li>
                   <li style="margin-bottom: 0.4rem;"><strong>IWAD Folder Location:</strong> Global asset directory location storing main data archives (.WAD).</li>
                   <li><strong>Detected IWADs Selector:</strong> Quick dropdown options listing all valid games found inside your library path.</li>
-                  <li>If the Paths are met, the launcher will inform you and or direct you to the Updates tab to download Doom Legacy or Shareware IWADs if needed.</li>
+                  <li>If the Path requirments for the Doom Legacy engine or the IWAD location aren't met, the launcher will inform you and or direct you to the <a href="#updates-tab">Updates tab</a> to download Doom Legacy or Shareware IWADs if needed.</li>
                   <li>Once you have your location paths setup, and an IWAD is selected, both <strong>Skill</strong> and <strong>Maps</strong> Combo boxes will now be active displaying the Skill and proper list of given maps depending on the selected IWAD.</li>
                   <li>The &quot;<strong>Don't load map</strong>&quot; check box is exactly that, if you check it, and click Launch, the game will load without spawning you in a map, and the first thing you'll see is the game's Title Screen but the setting still loads all other launcher settings. This setting has no affect for a Network game, since we will always load a map then.</li>
                   <li><strong>Player Name</strong> is obviously where you'd enter your Player Name to display in game. Note* this does not refect your IRC user name or Nick Name.</li>
@@ -434,6 +455,7 @@ html {
                 <img src="images/launcher_shot2.png" class="manual-img" alt="Legacy Settings Tab Screenshot">
               </div>
               <div class="tab-text-side">
+                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;">The Legacy Settings tab is mostly populated with a lot of check box and combo box controls to enable or disable random parameters. </p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;"><strong>Audio</strong> being first where you'd mostly want to keep disabled or unchecked, but they are here incase you'd rather listen to your own music or just don't want to hear anything at all, or maybe just for testing. The same pretty much goes for the <strong>Controls</strong>, Disable Mouse and Disable Joystick will usually go unchecked. The <strong>Experimental Game Options</strong> are mostly here for testing new features recently added to Doom Legacy. Try them out and see if you like them! More will likely be added to future versions of the Launcher. This now brings us to the <strong>Video</strong> settings. These will likely become the most usful settings in the this tab, where obviously we'll select OpenGL and Window Mode video resolutions. The Center Screen check box is a Launcher feature, since on Windows anyway, and in windowed mode, Doom Legacy will end up being displayed in the upper left corner of your screen without it. When checked, the Launcher will try to force Legacy's game window to the center of your screen. You can also set the window to scale to the size of the Launcher using the Display as Launcher Scale, if wanted. Now for the <strong>Conrona Effects</strong> controls. They allow you to changed the Type and Size of Legacy's classic spherical glow effects we see attached to the games light sources like candles, electric lamps and torches. </p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
@@ -449,12 +471,15 @@ html {
             <p><span class="lightblue1">Game Settings Tab:</span></p>
             
             <div class="tab-content-flex">
-              <div class="tab-image-side">
-                <img src="images/launcher_shot2_2.png" class="manual-img" alt="Game Settings Tab Screenshot">
-              </div>
+              <div class="tab-image-side"><img src="images/launcher_shot2_2.png" class="manual-img1" alt="Game Settings Tab Screenshot"></div>
               <div class="tab-text-side">
-                <p style="color: #F00; font-size: 14px; margin: 0;">TODO: </p>
-                <p style="color: #ccc; font-size: 14px; margin: 0;">Add PWAD .wad or Dehacked .deh files here. As well as gameplay adjustments. Notice we can enable MBF Dogs and add Bots on the fly!</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">In the <strong>Game Settings tab</strong> we have:</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0;"> <strong>Addons:</strong> Load your PWAD .wad or Dehacked .deh files here. Like most settings in the launcher, once added, the path will still be there the next time you load the launcher. The same goes for <strong>Gameplay Modifiers:</strong> These check boxes are self explainitory other than the MBF Dogs checkbox. MBF Dog helpers have been added to the launcher to make those tough levels easier, if needed. When MBF Dogs is checked, 6 dogs will be loaded. Note that this option does not apply to a Network Game. These checkbox controls will be remembered so you won't have to recheck them every time you load the launcher. However, the Item Respawn Time and Monster Respawn Time slider controls will reset on reload, as will the Add Bots selection. You can add up to 8 bots here. Note* if hosting a network game, it's not advised to have bots loaded, since it can cause consistency failures for joining clients.</p>
+<p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
+<p style="color: #ccc; font-size: 14px; margin: 0;">As like the Legacy Settings tab, more controls and features will likely be added to this tab in the future.</p>
+<p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
               </div>
             </div>
           </div>
@@ -470,12 +495,16 @@ html {
               </div>
               <div class="tab-text-side">
                 <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">
-                  <strong>Host or Join Network Games:</strong><br><br>
-                  Double-click servers in the server list to connect, or host your own local area network (LAN) and public internet games.
-                </p>
                 <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">
-                  As mentioned in the launcher itself, you will need to forward port <strong>5029 UDP</strong> when hosting a public game so your server is visible to the public. You may want to go ahead and forward the port number for <strong>TCP</strong> as well. Most of the time, forwarding TCP isn't necessary because PWADs are downloaded directly through the launcher. However, if the server is hosting a customized <strong>.Deh file</strong> and the file cannot be found, Doom Legacy will try to download it internally. This process requires a TCP connection for its download stream instead of UDP.
+  <strong>Host or Join Network Games:</strong><br><br>
+  In the Network Game tab, the first thing you'll notice is the Server List which will display any running Doom Legacy servers. Double-click servers in the server list to Join a hosted game, or host your own local area network (LAN) and public internet games by checking the <strong>Host Game</strong> checkbox. <br>
                 </p>
+                <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">If hosting a game, add a new <strong>Server Name</strong> in the Server Name text field. If the server name entered is already in use, the launcher will inform you to change the name of it. Since you're planning to Host a server, you can also quickly adjust the <strong>Game Mode</strong>, <strong>Fraglimit</strong> and <strong>Timelimit</strong> prior to hosting..</br>
+                </p>
+<p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;">
+                As mentioned in the launcher itself, you will need to forward port <strong>5029 UDP</strong> when hosting a public game so your server is visible to the public. You may want to go ahead and forward the port number for <strong>TCP</strong> as well. Most of the time, forwarding TCP isn't necessary because PWADs are downloaded directly through the launcher. However, if the server is hosting a custom <strong>PWAD</strong> or <strong>.Deh</strong> file and the file cannot be found, Doom Legacy will try to download it internally. This process requires a TCP connection for its P2P download stream instead of UDP.
+</p>
+                <p style="color: #ccc; font-size: 14px; margin: 0 0 1rem 0;"> When <strong>Host Game</strong> is checked and you're ready to start up a server, simply click the <a href="#launch-button">Launch button</a> and your in game Doom Legacy server will be running, and your server will show up in the server list.&nbsp; </p>
                 <p style="color: #ccc; font-size: 14px; margin: 0;">
                   The <strong>Master Server Address</strong> field can be left blank; it is mostly there for future use. Right now, the launcher utilizes its own database to store hosted server information and relay it back to the client's server list data grid so players can view active matches worldwide, and join them.
                 </p>
@@ -483,22 +512,31 @@ html {
             </div>
           </div>
 
-          <!-- 5. Updates Block Continuation -->
-          <div id="updates-tab" class="tab-section">
-            <a href="#top" class="back-to-top">^ Back to Top</a>
-            <p><span class="lightblue1">Updates Tab:</span></p>
-            
-            <div class="tab-content-flex">
-              <div class="tab-image-side">
-                <img src="images/launcher_shot4.png" class="manual-img" alt="Updates Tab Screenshot">
-              </div>
-              <div class="tab-text-side">
-                <p style="color: #F00; font-size: 14px; margin: 0;">TODO:</p>
-                <p style="color: #ccc; font-size: 14px; margin: 0;">&nbsp;</p>
-                <p style="color: #ccc; font-size: 14px; margin: 0;">Automated update scripts built to check version numbers, download launcher revisions, and retrieve free shareware assets directly over safe file mirrors.</p>
-              </div>
-            </div>
-          </div>
+        <!-- 3. Updates Tab Section Block -->
+<div id="updates-tab" class="tab-section">
+  <a href="#top" class="back-to-top">^ Back to Top</a>
+  <p><span class="lightblue1">Updates Tab:</span></p>
+
+  <div class="tab-content-flex">
+    <!-- Left Side: Image container box -->
+    <div class="tab-image-side">
+      <img src="images/launcher_shot4.png" class="manual-img" alt="Updates Tab Screenshot">
+    </div>
+
+    <!-- Right Side: Description text and bullet lists -->
+    <div class="tab-text-side">
+      <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem; margin: 0;">
+        <li style="margin-bottom: 0.4rem;">The <strong>Updates tab</strong> is where you can <strong>Download Doom Legacy</strong> as well as its Common resource files. The Launcher will download, extract them, and have you ready to play in a single click. </li>
+        <li>The same goes for the Shareware and Freedoom IWADs. When the launcher detect that you don't have any IWADs installed, the <strong>Download Free IWADs</strong> button will be visible.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Doom Legacy Neo</strong> is a development branch based on the 1.42 birthday version of Doom Legacy. Updated to SDL3, offering widescreen support and a new master server network protocol. Automatic downloads for Neo may be disabled at times; when this is the case, use <strong>Check for new Releases</strong> to be taken to the download page manually.</li>
+        <li><strong>Update Engine Path</strong>: This button is currently disabled and will be functional in later verrsions of the launcher. The reasoning behind it is if you have downloaded and installed both engines, the button allows you to switch between their engine paths. Letting you Immediately switch from the current Doom Legacy engine to Doom Legacy Neo engine with a single click.</li>
+        <li style="margin-bottom: 0.4rem;">If you don't already own Doom or Doom II, the <strong>Don't have Doom?</strong> section has you covered. Clicking <strong>Download Free and Shareware IWADs</strong> will grab Freedom 1 &amp; 2, FreeDM, the Doom Shareware (Episode 1), and the Heretic Demo — all free and legally redistributable — so you can start playing right away.</li>
+        <li style="margin-bottom: 0.4rem;">Once a download finishes, the launcher will confirm what was installed and let you know your Doom Legacy Path has been updated automatically. It's still a good idea to double check the path afterward in the <a href="#setup-tab">Setup tab</a>.</li>
+        <li>Below the download options, the <strong>Changelog</strong> panel displays the release notes for the currently installed version, so you can see what's new or changed at a glance.</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
           <!-- 6. NEW: IRC Chat Block Section Element -->
           <div id="irc-tab" class="tab-section">
@@ -510,13 +548,13 @@ html {
                 <img src="images/launcher_shot5.png" class="manual-img" alt="IRC Tab Chat Screenshot">
               </div>
               <div class="tab-text-side">
-                <p style="color: #F00; font-size: 14px; margin-top: 0; margin-bottom: 0.8rem;">
-                TODO: </p>
-                <p style="color: #ccc; font-size: 14px; margin-bottom: 0.8rem;">The launcher features an integrated, lightweight Internet Relay Chat (IRC) client that automatically links you to the community chatrooms. This section is designed to keep players connected without requiring external client programs. </p>
+                <p>&nbsp;</p>
+                <p style="color: #ccc; font-size: 14px; margin-bottom: 0.8rem;">In the <strong>IRC tab</strong>, the launcher features an integrated, lightweight Internet Relay Chat (IRC) client that connects and joins #legacylauncher. This section is designed to keep players connected without requiring external client programs. The IRC client is pretty basic and it limited to most IRC commands. However, is Ideal for organizing DM or Coop sessions, challenging rivals or checking server availability with active players.</p>
                 <ul class="style1" style="color: #ccc; font-size: 14px; padding-left: 1.2rem; margin: 0;">
-                  <li style="margin-bottom: 0.4rem;"><strong>Auto-Connect:</strong> Joins the official Doom Legacy matchmaking channel immediately upon loading the tab panel.</li>
-                  <li style="margin-bottom: 0.4rem;"><strong>Match Coordination:</strong> Ideal for organizing coop sessions, challenging rivals to deathmatches, or checking server availability with active players.</li>
-                  <li><strong>Chat Code of Conduct:</strong> All message transactions inside the text window are subject to our behavioral terms to prevent flooding or server harassment.</li>
+                  <li style="margin-bottom: 0.4rem;"><strong>Nick:</strong> The Nickname you will use when connecting to IRC. If no name is given, the default LegacyUser and [random number] will be generated. As mentioned in the <a href="#setup-tab">Setup tab</a>, this Nick name does not refect your in-game Player name.</li>
+                  <li><strong>Connect:</strong> Joins  channel legacylauncher immediately. <strong>Disconnect</strong>, or closing the launcher will disconnect you from the IRC server. </li>
+                  <li><strong>Send:</strong> The Send message button obviously allows you to send a message. A message can also be sent simply by hitting your Enter key. After leaving a message the client has a built in history feature where you can arrow up or down to view your last message text history. The client also supports clickable links in the chat window.</li>
+                  <li><strong>Note:</strong> All message transactions inside the chat window are subject to our behavioral terms to prevent flooding or server harassment.</li>
                 </ul>
               </div>
             </div>
