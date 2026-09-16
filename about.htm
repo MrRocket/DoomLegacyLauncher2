@@ -60,11 +60,11 @@ html {
 
     /* Center Main Content Section Area */
     .main-column {
-      flex: 1; 
-      background-color: #000000;      
-      border: 1px solid #1c3c11;       
-      padding: 1.5rem;
-      border-radius: 3px;
+	flex: 1;
+	background-color: #000000;
+	border: 1px solid #1c3c11;
+	padding: 1rem;
+	border-radius: 3px;
     }
 
     /* Standardized Legacy Card Borders */
@@ -104,9 +104,9 @@ html {
 	border: 1px solid #3a3a1a;
 	border-radius: 4px;
 	margin-top: 1.5rem;
-	font-weight: bold;
 	color: #89d850;
-	font-size: x-large;
+	font-size: large;
+	font-weight: bold;
     }
 
     h1, h2, h3 {
@@ -170,9 +170,10 @@ html {
     }
 
     .details-text-column p {
-      margin-top: 0;
-      margin-bottom: 1.2rem;
-      text-align: justify;
+	margin-top: 0;
+	margin-bottom: 1.2rem;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
     }
 
     .details-text-column ul {
@@ -198,8 +199,10 @@ html {
     }
 
     .style1 {
-      font-size: 16px;
-      text-align: left;
+	font-size: 16px;
+	text-align: left;
+	color: #9F0;
+	font-weight: bold;
     }
 
     /* Mobile responsive adjustments */
@@ -370,6 +373,16 @@ html {
   border: 1px solid #1c3c11; /* Matching thin green legacy border */
   border-radius: 4px;
 }
+  #top .content .main-column .media-details-row .details-text-column p {
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+  #top .content .main-column .media-details-row .details-text-column p {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #D6D6D6;
+}
+  .whitebold {
+	font-weight: bold;
+}
   </style>
 </head>
 <body id="top">
@@ -381,35 +394,27 @@ html {
     <!-- Center Main Content Area -->
     <div class="main-column">
       
-<div class="header-showcase-row">
-  <a href="index.html">
-  <img src="images/legacy_launcher_top.png" alt="Doom Legacy Launcher Logo" class="logo">
-</a>
-  <div class="top-right-picturebox">
-    <a href="index.html">Vist web site</a>
-  </div>
-</div>
+<div class="header-showcase-row"></div>
       
-<div class="release-header"></div>
+<div class="release-header">Doom Legacy Launcher 2 Created by: Mr.Rocket</div>
 
       <div class="media-details-row">
         <div class="details-text-column">
-          <p>
-          <!-- Getting Started Text Panel with Anchor Links -->
-          Doom Legacy Launcher 2 Created by: Mr.Rocket          <br>
-          A modern Windows launcher built for the Doom Legacy source engine, designed to make setting up, hosting, and joining games as simple as possible.
-          <p>ABOUT:<br>Doom Legacy Launcher 2 handles engine setup, IWAD/PWAD management, network hosting and joining, IWAD/addon integrity verification, and more — all wrapped in an interface inspired by the classic Doom Legacy website look.
+          <p>A modern Windows launcher built for the Doom Legacy source engine, designed to make setting up, hosting, and joining games as simple as possible.          
+          <p><span class="style1">ABOUT:</span><br>
+            Doom Legacy Launcher 2 handles engine setup, IWAD/PWAD management, network hosting and joining, IWAD/addon integrity verification, and more — all wrapped in an interface inspired by the classic Doom Legacy website look.
+          
+          <p><span class="style1">CREDITS:</span><br>
+            Beta Testers: - (your name here!) </p>
+          <p><span class="whitebold">Special Thanks:</span><br>id Software<br>The Doom Legacy development team <br>The Freedoom project<br>The Doom community</br> 
           </p>
-          <p>CREDITS:<br>Beta Testers: - (add names here) Special Thanks: - The Doom Legacy development team - The Freedoom project - The Doom community</br> CONTACT GitHub: https://github.com/MrRocket/DoomLegacyLauncher2</p>
+<p class="style1"><span class="style1">CONTACT:</span><br>GitHub: https://github.com/MrRocket/DoomLegacyLauncher2</p></br>
           </p>
 
           <!-- 1. Setup Tab Section Block Element -->
           <!-- 2. Legacy Settings Block -->
           <!-- 3. Game Settings Block -->
-          <!-- 4. Network Game Block -->
-          <!-- 3. Updates Tab Section Block -->
-          <!-- 6. NEW: IRC Chat Block Section Element -->
-        </div> <!-- Ends .details-text-column -->
+          <!-- 4. Network Game Block --></div> <!-- Ends .details-text-column -->
       </div> <!-- Ends .media-details-row -->
 
     </div> <!-- Ends .main-column center workspace -->
